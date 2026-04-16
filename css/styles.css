@@ -15,6 +15,31 @@
   --nav-h:         60px;
 }
 
+[data-theme="light"] {
+  --bg:         #f5f3ef;
+  --bg-2:       #f5f3ef;
+  --bg-3:       #e8e5df;
+  --text:       #1a1a1a;
+  --accent:     #b08c2e;
+  --accent-dim: #8a6d1f;
+  --border:     #d4d0c8;
+  --muted:      #5a5650;
+}
+
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  cursor: pointer;
+  border-radius: var(--radius);
+  padding: 0.25rem 0.6rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent);
+}
+
 /* Design */
 body {
   display: flex;
@@ -66,6 +91,14 @@ nav {
   background: rgba(13,13,13,.85);
   border-bottom: 1px solid var(--border);
   height: var(--nav-h);
+}
+
+[data-theme="light"] nav {
+  background: rgba(245, 243, 239, 0.85);
+}
+
+[data-theme="light"] header a:hover {
+  color: #f5f3ef;
 }
  
 nav > div {

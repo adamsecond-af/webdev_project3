@@ -1,3 +1,35 @@
+const saved = localStorage.getItem('theme');
+if (saved === 'light') {
+  document.documentElement.setAttribute('data-theme', 'light');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) {
+    return;
+  }
+
+  if (document.documentElement.getAttribute('data-theme') === 'light') {
+    btn.textContent = 'Dark Mode';
+  }
+  else
+  {
+    btn.textContent = 'Light Mode';
+  }
+
+  btn.addEventListener('click', function () {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+      btn.textContent = 'Light Mode';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      btn.textContent = 'Dark Mode';
+    }
+  });
+});
 
 function initMap() {
   const mapEl = document.getElementById('map');
